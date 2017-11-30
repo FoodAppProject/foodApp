@@ -6,4 +6,5 @@ module.exports = function(sequelize, dataTypes){
 		birthday: dataTypes.DATE
 	});
 	return User;
+
 }

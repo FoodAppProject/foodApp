@@ -1,4 +1,6 @@
-var db = require('../models');
+var db = require('./models');
+
+//need to update routes based on information from passport and what we will allow users to update
 
 module.exports = function(app){
 	app.get('/api/users', function(req, res){
@@ -35,3 +37,4 @@ module.exports = function(app){
 		})
 	})
 }
+
