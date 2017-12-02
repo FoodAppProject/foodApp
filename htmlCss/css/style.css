@@ -1,0 +1,74 @@
+/*//////////index.html/////////*/
+#userImg{ 
+    border-radius: 50%;
+    border-style: dotted;
+    padding: 5px;
+}
+ 
+#head {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+.logo{
+	font-family: 'Sonsie One', cursive;
+}
+#swipeButtons{
+	display: block;
+	position: fixed;
+	top: 480px;	
+	left: 500px;
+}
+
+#btn-for-later {
+	display: block;
+	position: fixed;
+	top: 480px;	
+	left: 50px;
+}
+#footer {
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/*///////Feed.html////////*/
+#imagePosition{
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	margin: -90px;
+	margin-bottom: -100%;
+}
+body {
+	background: lightgrey;
+}
+#userImgFeed{
+    border-radius: 50%;
+    border-style: dotted;
+    padding: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+#preferences{
+	display: block;
+	position: fixed;
+	top: 300px;
+	margin-left: 480px;
+	font-color: white;
+}
+
+.form-check{
+	display: block;
+	position: fixed;
+	top: 400px;
+	text-align: justify;
+	margin-left: 250px;
+}
+label{
+	font-size: 28px;
+}
