@@ -13,7 +13,7 @@ app.use(express.static('public'))
 
 app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}))
 
-require('./app/config/passport')(passport)
+require('./app/config/passport.js')(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
