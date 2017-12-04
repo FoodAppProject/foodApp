@@ -2,7 +2,8 @@ var db = require('../models/index');
 
 var isAuthenticated = require('../config/middleware/isAuthenticated.js');
 
-module.exports = function(app){
+module.exports = function(app, passport){
+
 	app.post('/auth/login', passport.authenticate('local'), function(req, res){
 		//not sure what this is?
 		res.redirect('/')
@@ -25,7 +26,7 @@ module.exports = function(app){
 
 	app.get('/auth/facebook/callback',
 		passport.authenticate('facebook', {
-			successRedirect: '/??',
+			successRedirect: '/',
 			failureRedirect: '/'
 		})
 	)

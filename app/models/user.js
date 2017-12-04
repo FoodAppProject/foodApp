@@ -1,7 +1,9 @@
-var bcrypt = require('bcrypt');
+// var Sequelize = require('sequelize')
+// var sequelize = require('../config/config.js')
+// var bcrypt = require('bcrypt');
 
-module.exports = function(sequelize, dataTypes){
-	var User = sequelize.define('user',{
+module.exports = function(sequelize, DataTypes){
+	var User = sequelize.define('users',{
 		user_name: {
 			type: DataTypes.STRING,
 			unique: true
@@ -19,33 +21,34 @@ module.exports = function(sequelize, dataTypes){
 		facebook_token: {
 			type: DataTypes.STRING,
 		},
-		facebook_email: {
-			type: DataTypes.SRING,
-			unique: true,
-			validate: {
-				isEmail: true
-			}
-		},
+		// facebook_email: {
+		// 	type: Sequelize.SRING,
+		// 	unique: true,
+		// 	validate: {
+		// 		isEmail: true
+		// 	}
+		// },
 		facebook_name: {
 			type: DataTypes.STRING,
 		},
 		recipe_info: {
 			type: DataTypes.TEXT
 		}
-	}, {
-		hooks: {
-			beforeCreate: function(user, options){
-				user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
-			}
-		},
+	}, 
+	{
+		// hooks: {
+		// 	beforeCreate: function(user, options){
+		// 		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
+		// 	}
+		// },
 
 		tableName: 'users', 
-		timestamps: false
+		timestamps: true
 	});
 
-	User.prototype.validPassword = function(password){
-		return bcrypt.compareSync(password, this.password)
-	}
+	// User.prototype.validPassword = function(password){
+	// 	return bcrypt.compareSync(password, this.password)
+	// }
 
 	return User;
 

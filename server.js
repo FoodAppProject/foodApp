@@ -9,7 +9,7 @@ var db = require('./app/models/index')
 var app = express()
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
-app.use(express.static('public', 'ajaxClicks'))
+app.use(express.static('public'))
 
 app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}))
 
@@ -20,8 +20,11 @@ app.use(passport.session())
 require('./app/routes/html-routes.js')(app)
 require('./app/routes/api-routes.js')(app, passport)
 
-app.listen(PORT, function(){
+db.sequelize.sync().then(function(){
+	app.listen(PORT, function(){
 	console.log('Listening on port: ' + PORT)
+	});
 })
+
 
 module.exports = app
