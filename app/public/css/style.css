@@ -1,8 +1,21 @@
 /*//////////index.html/////////*/
+body, h1{
+	font-family: 'Sonsie One', cursive;
+} 
+
+body {
+	background-image: url("background.jpg");
+}
+
+.heading {
+	text-align: center;
+}
+.image {
+	padding: 20px;
+}
 #userImg{ 
     border-radius: 50%;
     border-style: dotted;
-    padding: 5px;
 }
  
 #head {
@@ -10,30 +23,25 @@
     padding: 20px;
     text-align: center;
 }
-.logo{
-	font-family: 'Sonsie One', cursive;
-}
-#swipeButtons{
-	display: block;
-	position: fixed;
-	top: 480px;	
-	left: 500px;
+
+.main {
+	text-align: center;
 }
 
-#btn-for-later {
-	display: block;
-	position: fixed;
-	top: 480px;	
-	left: 50px;
-}
 #footer {
-    background-color: #f1f1f1;
+    background-color: black;
     position: fixed;
-    height: 100px;
+    height: auto;
     bottom: 0;
     width: 100%;
     text-align: center;
 }
+
+#footer p {
+	font-size: 10px;
+	color: #bfbfbf;
+}
+
 
 /*///////Feed.html////////*/
 #imagePosition{
@@ -43,9 +51,7 @@
 	margin: -90px;
 	margin-bottom: -100%;
 }
-body {
-	background: lightgrey;
-}
+
 #userImgFeed{
     border-radius: 50%;
     border-style: dotted;

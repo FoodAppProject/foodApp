@@ -1,27 +1,46 @@
+var express = require("express");
+
 var db = require("../models");
-var recipe = require("../controllers/recipe.js");
+// var Recipe = require("../controllers/recipe.js");
 
 module.exports = function(app) {
 // get random recipe for "no-btn"
-	app.get('/api/randomRecipe', function(req, res){
-		db.Users.findOne({id: 1}).then(function(dbUser){
-			// (id:req.body.userId)
-			var tags = dbUser.tags;
-			res.json(recipe(tags));
-		})
-	})
+	app.get('/api/recipes/:tags?', function(req, res){
+		var tags = dbUser.tags;
+
+		if (req.params.tags) {
+			db.Recipe.findOne({
+				where: {
+					routeName: req.params.tags
+				}
+			}).then(function(result){
+				return res.json(recipe(tags))
+			});
+		} 
+
+		else {
+			Recipe.findAll({}).then(function(result){
+				return res.json(recipe(tags));
+			});
+		}
+	});
 // get current recipe to save for later
 	app.get('/api/recipe/:id', function(req, res){
-		db.Recipes.findOne({id: req.paras.id}).then(function(dbRecipe){
+		db.Recipe.findOne({id: req.paramss.id}).then(function(dbRecipe){
 			res.json(dbRecipe);
 		})
 	})
 // post saved reciped into users profile page
 	app.post('/api/users', function(req, res){
 		db.Recipe.create({
-			// recipe object 
-		}).then(function(dbUsers){
-			res.json(dbUsers)
+				// recipe object // check name on sql table
+			name: req.body.name,
+			image: req.body.imageURL,
+			ingredients: req.body.ingredients,
+			instructions: req.body.instructions
+			userID: req.body.userID
+		}).then(function(result){
+			res.json(result)
 		})
 	})
 // delete uwanted recipes --> create delete buttons --> check burger activity
@@ -30,8 +49,8 @@ module.exports = function(app) {
 			where:{
 				id: req.params.id
 			}
-		}).then(function(dbUsers){
-			res.json(dbUsers);
+		}).then(function(result){
+			res.json(result);
 		})
 	})
 }
