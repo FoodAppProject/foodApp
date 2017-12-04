@@ -1,7 +1,7 @@
 
 var unirest = require('unirest');
 
-var recipeApp = function(){	
+var specialDietsFilter = function(){	
 	unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?limitLicense=false&number=1")
 	.header("X-Mashape-Key", "nFUz42r0U1mshpt0Uq7JBSv0QEGHp1IDmtEjsnh67XCScyf2nJ")
 	.header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
@@ -10,7 +10,7 @@ var recipeApp = function(){
 		var vegan = result.body.recipes[0].vegan
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
-		if(vegetarian === true){
+		if(vegetarian === true || vegan === true || glutenFree === true || dairyFree === true){
 				var recipeInfo = {
 							title: result.body.recipes[0].title,
 							image : result.body.recipes[0].image,
@@ -43,11 +43,11 @@ var recipeApp = function(){
 						recipeInfo.getInstructions(result)
 						}else{
 							console.log('give us a moment while we search')
-							recipeApp()
+							specialDietsFilter()
 							}
 
 						})	
 
 					}
 			
-		recipeApp()	
+		specialDietsFilter()	
