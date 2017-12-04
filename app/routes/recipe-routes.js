@@ -1,15 +1,24 @@
-var db = require("../app/models");
+var db = require("../models");
+var recipe = require("../controllers/recipe.js");
 
 module.exports = function(app) {
-// get initial recipe on page to save for later
-	app.get('/api/recipe', function(req, res){
-		db.Users.findOne({}).then(function(dbUsers){
-			res.json(dbUsers)
+// get random recipe for "no-btn"
+	app.get('/api/randomRecipe', function(req, res){
+		db.Users.findOne({id: 1}).then(function(dbUser){
+			// (id:req.body.userId)
+			var tags = dbUser.tags;
+			res.json(recipe(tags));
+		})
+	})
+// get current recipe to save for later
+	app.get('/api/recipe/:id', function(req, res){
+		db.Recipes.findOne({id: req.paras.id}).then(function(dbRecipe){
+			res.json(dbRecipe);
 		})
 	})
 // post saved reciped into users profile page
 	app.post('/api/users', function(req, res){
-		db.Users.create({
+		db.Recipe.create({
 			// recipe object 
 		}).then(function(dbUsers){
 			res.json(dbUsers)
@@ -17,7 +26,7 @@ module.exports = function(app) {
 	})
 // delete uwanted recipes --> create delete buttons --> check burger activity
 	app.delete('/api/users/:id', function(req, res){
-		db.Users.destroy({
+		db.Recipe.destroy({
 			where:{
 				id: req.params.id
 			}
@@ -26,3 +35,6 @@ module.exports = function(app) {
 		})
 	})
 }
+
+
+//CREATE RECIPE TABLE in carman's schema ......

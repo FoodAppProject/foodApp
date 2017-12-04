@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 		$.ajax("/api/recipe", {
 			type: 
-			data:
 		}).then(function(data){
 			console.log("NEXT")
 			location.reload();
@@ -37,4 +36,14 @@ $(document).ready(function(){
 			location.reload();
 		})
 	});
+
+
+	var modalInfo = function(info, renderArea) {
+		var image = 
+		var 
+	}
+
+	//append shit to modal
+
+	//launch saved modal icons with modal format blah blah and add delete button
 });
