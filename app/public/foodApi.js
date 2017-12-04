@@ -7,10 +7,10 @@ var isEntree = function(){
 	.header("X-Mashape-Key", "nFUz42r0U1mshpt0Uq7JBSv0QEGHp1IDmtEjsnh67XCScyf2nJ")
 	.header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
 	.end(function(result){
-		// var vegetarian = result.body.recipes[0].vegetarian
-		// var vegan = result.body.recipes[0].vegan
-		// var glutenFree = result.body.recipes[0].glutenFree
-		// var dairyFree = result.body.recipes[0].dairyFree
+		var vegetarian = result.body.recipes[0].vegetarian
+		var vegan = result.body.recipes[0].vegan
+		var glutenFree = result.body.recipes[0].glutenFree
+		var dairyFree = result.body.recipes[0].dairyFree
 		var acceptableDish = result.body.recipes[0].dishTypes
 		if (acceptableDish.includes("main course" || "salad" || "breakfast" || "soup" || "dinner" || "main dish" || "lunch" || "morning meal" || "brunch" || "breakfast" )) {
 
@@ -60,8 +60,8 @@ var isEntree = function(){
 
 ///------------------------------Returns Any Special Diet Recipes-----------------------------///
 //here we would also include an && for users who were vegan and gluten-free.  The reason why I don't have it is because just pulling a vegan recipe took sometimes 9
-//tries.  I thought that getting it two restrictive would slow down the app.  Also I have yet to include a filter that
-//limits results to not include sauces, cocktails, desserts.  
+//tries.  I thought that getting it too restrictive would slow down the app.  Also I have yet to include a filter that
+//limits results to not include sauces, cocktails, desserts when there is also a dietary specification.  
 
 var unirest = require('unirest');
 
