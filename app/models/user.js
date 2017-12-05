@@ -50,6 +50,14 @@ module.exports = function(sequelize, DataTypes){
 	// 	return bcrypt.compareSync(password, this.password)
 	// }
 
+	User.associate = function(models){
+		User.hasMany(models.Recipe, {
+			foreignKey: {
+				allowNull: false
+			}
+		});
+	};
+
 	return User;
 
 }
