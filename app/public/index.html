@@ -13,37 +13,45 @@
 	<link href="https://fonts.googleapis.com/css?family=Poller+One|Sonsie+One" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 
-
 </head>
 <body>
-	<div id="head">	
-	  	<header>
+		<div class="image">
 			<a href="feed.html">
-			<img id="userImg" src="https://www.acefitness.org/myace/images/contactimage/no_photo.jpg" alt="Myself" width="100" height="100"></a>
-	        <div id="findMyRecipe">
-			<h1 class="logo">Find My Recipes</h1>
+				<img id="userImg" src="https://www.acefitness.org/myace/images/contactimage/no_photo.jpg" alt="Myself" width="100" height="100">
+			</a>
+		</div>
+		<div class="heading">
+			<h1>What's Cooking, Good Looking?</h1>
+		</div>
+
+	<div class="main container">
+		<div class="row align-items-start">
+			<div class="row">
+				<div class="loadImage">
+					<img src="./loginPage/burger.png" width="450px" height="400px"><br>
+				</div>
 			</div>
-		</header>
- 	</div>
+		</div>
 
- 	<!-- foto Swipe -->
-	<div id="fotoSwipe">
-
+		<div class="row align-items-center">
+			<div class="row">
+				<div class="col-md-6">
+					<button type="button" id="no-btn" class="btn btn-danger btn-lg">Eek! No!</button>
+				</div>
+				<div class="col-md-6">
+					<!-- Button trigger modal -->
+					<button type="button" id="yes-btn" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">Show the Recipe!</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row align-items-end">
+			<div class="row">
+				<button type="button" id="later-btn" class="btn btn-success btn-lg">Nom for Later</button>	
+			</div>
+		</div>
 	</div>
 
-	 <!-- swipe buttons  -->
-	<div id="swipeButtons">
-		<button type="button" id="no-btn" class="btn btn-primary btn-lg">Eek! No!</button>
-
-		<!-- Button trigger modal -->
-		<button type="button" id="yes-btn" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Show the Recipe!</button>
-	</div>	
-
-	<!-- save for later button -->
-	<div id="btn-for-later">
-		<button type="button" id="later-btn" class="btn btn-primary btn-lg">Nom for Later</button>	
-	</div>
-	
 	<!-- footer	 -->
 	<div id="footer">
 	  <p>Eat on your own accord. Allergies not included in recipe. Blame yourself if you get infected.</p>
@@ -55,13 +63,12 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="myModalTitle">Happy Cooking</h5>
+	        <h5 class="modal-title" id="recipeTitle">Happy Cooking</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <p id='modalImg'>Image</p>
 	        <p id='modalIngredients'>Ingredients</p>
 	        <p id='modalInstructions'>Instructions</p>
 	      </div>
