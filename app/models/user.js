@@ -3,7 +3,7 @@
 // var bcrypt = require('bcrypt');
 
 module.exports = function(sequelize, DataTypes){
-	var User = sequelize.define('users',{
+	var User = sequelize.define('User',{
 		user_name: {
 			type: DataTypes.STRING,
 			unique: true
@@ -49,6 +49,15 @@ module.exports = function(sequelize, DataTypes){
 	// User.prototype.validPassword = function(password){
 	// 	return bcrypt.compareSync(password, this.password)
 	// }
+
+	User.associate = function(models){
+		User.belongsToMany(models.Recipe, {
+			foreignKey: {
+				allowNull: false
+			},
+			through: 'userRecipe'
+		});
+	};
 
 	return User;
 
