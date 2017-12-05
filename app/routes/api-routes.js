@@ -9,7 +9,7 @@ module.exports = function(app, passport){
 		res.redirect('/')
 	});
 
-	app.post('/auth/signup', function(req, res){
+	app.post('/api/user', function(req, res){
 		db.Users.create({
 			user_name: req.body.name,
 			email: req.body.email,
