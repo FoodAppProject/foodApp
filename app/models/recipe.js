@@ -2,6 +2,7 @@ module.exports = function(sequelize, dataTypes) {
 	var Recipe = sequelize.define("Recipe", {
 		routeName: dataTypes.STRING,
 		name: dataTypes.STRING,
+		tag: dataTypes.STRING,
 		ingredients: dataTypes.STRING,
 		instructions: dataTypes.STRING
 	});

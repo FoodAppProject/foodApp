@@ -11,7 +11,8 @@ module.exports = function(app){
 		res.sendFile(path.join(__dirname + '/../public/loginPage/login.html'))
 	});
 
-	app.get('/recipes', function(req, res){
+
+	app.get('/login', function(req, res){
 		if(req.user){
 			res.redirect('/users');
 		}

@@ -1,3 +1,4 @@
+var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var FacebookStrategy = require('passport-facebook').Strategy
 var db = require('../models/index')
@@ -21,7 +22,12 @@ module.exports = function(passport){
 					return done(null, false, {
 						message: 'Incorrect email'
 					})
-			}
+				}
+				else if(!dbUser.validPassword(password)){
+					return done(null, false, {
+						message: "Incorrect password"
+					})
+				}
 			return done(null, dbUser)
 
 			})
@@ -29,8 +35,9 @@ module.exports = function(passport){
 	))
 
 	passport.use(new FacebookStrategy({
-		clientID: process.env.805216279650927,
-		clientSecret: process.env.88ba957b0eeeb61f8f023d57d317d09e,
+		//not reading these unless I remove process.env and put into a string...
+		clientID: '805216279650927',
+		clientSecret: '88ba957b0eeeb61f8f023d57d317d09e',
 		callbackURL: 'http://localhost:8080/auth/facebook/callback',
 		profileFields: ['id', 'name', 'email']
 	},
