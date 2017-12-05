@@ -1,11 +1,12 @@
-var getRecipe = require("../controllers/recipe.js");
+// var getRecipe = require("../controllers/recipe.js");
 
 $(document).ready(function(){
+	console.log("RUNNING")
 	$("#no-btn").on('click', function(){
 		// choose new photo/recipe again
 		event.preventDefault();
 
-		getRecipe();
+		// getRecipe();
 		// can i do this??
 
 		location.reload();
@@ -31,7 +32,6 @@ $(document).ready(function(){
 			location.reload();
 		})
 
-		// how append results onto user's page
 	});
 
 	$("#delete-btn").on("click", function(){
@@ -68,22 +68,23 @@ $(document).ready(function(){
 
 		}
 		modal();
+	})
 
-		//launch saved modal icons with modal format blah blah and add delete button
+	//launch saved modal icons with modal format blah blah and add delete button
 		var savedRecipes = []
 		//from database: all recipes with user's ID associated
 
-		$.ajax('/api/:id', {
+		$.ajax('/api/', {
 			// how do I get request from database table?
 			type: "GET",
-			data: req.params.id
+			// data: req.params.id
 		}).then(function(result){
 			for (var i = 0; i < savedRecipes.length; i++) {
 				
 				var image = savedRecipes[i].imageURL;
 				// how the heck do i turn an image into a button for Modal????
 
-				var imageBtn = $("<button><img src=''></button>");
+				var imageBtn = $("<input>");
 				imageBtn.addClass("image-btn");
 				imageBtn.attr("data-toggle", "modal")
 				imageBtn.attr("data-target", "#imageModal")
@@ -102,7 +103,6 @@ $(document).ready(function(){
 				$("savedRecipes").append(deleteBtn)
 			}
 		})
-	})
 
 });
 

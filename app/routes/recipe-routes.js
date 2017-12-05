@@ -26,7 +26,11 @@ module.exports = function(app) {
 	});
 // get current recipe to save for later
 	app.get('/api/recipe/:id', function(req, res){
-		db.Recipe.findOne({id: req.paramss.id}).then(function(dbRecipe){
+		db.Recipe.findAll({
+			where: {
+				userID = req.params.userID
+			}
+		}).then(function(dbRecipe){
 			res.json(dbRecipe);
 		})
 	})
