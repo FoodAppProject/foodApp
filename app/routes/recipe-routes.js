@@ -25,39 +25,45 @@ module.exports = function(app) {
 		}
 	});
 // get current recipe to save for later
-	app.get('/api/recipe/:id', function(req, res){
-		db.Recipe.findAll({
+	// app.get('/api/recipe/:id', function(req, res){
+	// 	db.Recipe.findAll({
+	// 		where: {
+	// 			userID = req.params.userId
+	// 		}
+	// 	}).then(function(dbRecipe){
+	// 		res.json(dbRecipe);
+	// 	})
+	// })
+
+// post request to post current userId into joined table or post current recipeId?
+	app.post('/api/userRecipe/:id', function(req, res){
+		db.Recipe.create({
 			where: {
-				userID = req.params.userID
+				userID = req.params.userId
 			}
 		}).then(function(dbRecipe){
 			res.json(dbRecipe);
 		})
 	})
-// post saved reciped into users profile page
-	app.post('/api/users', function(req, res){
-		db.Recipe.create({
-				// recipe object // check name on sql table
-			name: req.body.name,
-			image: req.body.imageURL,
-			ingredients: req.body.ingredients,
-			instructions: req.body.instructions
-			userID: req.body.userID
-		}).then(function(result){
-			res.json(result)
+// get request on userPage to get all associated recipes from joined table
+	app.get('/api/userRecipe/:id', function(req, res){
+		db.Recipe.findAll({
+			where: {
+				userID = req.params.userId
+			}
+		}).then(function(dbRecipe){
+			res.json(dbRecipe);
 		})
 	})
-// delete uwanted recipes --> create delete buttons --> check burger activity
-	app.delete('/api/users/:id', function(req, res){
+
+// delete userId associated to unwanted recipe
+	app.delete('/api/userRecipe/:id', function(req, res){
 		db.Recipe.destroy({
 			where:{
-				id: req.params.id
+				userID: req.params.userId
 			}
 		}).then(function(result){
 			res.json(result);
 		})
 	})
 }
-
-
-//CREATE RECIPE TABLE in carman's schema ......
