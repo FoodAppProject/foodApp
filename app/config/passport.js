@@ -51,7 +51,7 @@ module.exports = function(passport){
 
 			if(user){
 				user.facebook_id = profile.id
-				user.facebook_email = email
+				// user.facebook_email = email
 				user.facebook_name = (`${ first_name } ${ last_name }`).trim()
 				user.facebook_token = accessToken
 
@@ -60,7 +60,7 @@ module.exports = function(passport){
 
 			return db.User.create({
 				facebook_id: profile.id,
-				facebook_email: email,
+				// facebook_email: email,
 				facebook_name: (`${ first_name } ${ last_name }`).trim(),
 				facebook_token: accessToken,
 			})

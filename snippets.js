@@ -1,3 +1,27 @@
+		var vegetarian = result.body.recipes[0].vegetarian
+		var vegan = result.body.recipes[0].vegan
+		var glutenFree = result.body.recipes[0].glutenFree
+		var dairyFree = result.body.recipes[0].dairyFree
+		var acceptableDish = result.body.recipes[0].dishTypes
+user1 = {
+	vegetarian: true,
+	glutenFree: true,
+	vegan: false,
+	dairyFree: false
+}
+
+var isSpecial = function(x){
+	if (vegetarian === true || vegan === true || glutenFree === true || dairyFree === true){
+		console.log("isSpecial")
+	}else{
+		console.log("not special")
+	}
+}
+
+isSpecial(user1)
+
+
+
 var unirest = require('unirest');
 
 var isEntree = function(){	
