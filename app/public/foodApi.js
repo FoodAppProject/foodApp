@@ -48,7 +48,7 @@ var isEntree = function(){
 							console.log('give us a moment while we search')
 							isEntree()
 							}
-
+							specialDietsFilter()
 						})	
 
 					}
@@ -100,18 +100,7 @@ var specialDietsFilter = function(){
 		  					 },
 
 						}
+					}	
 
-				console.log("<<<<--------- BASIC RECIPE INFO  ------------->>>>")
-						console.log(recipeInfo)
-						recipeInfo.getIngredients(result)
-						recipeInfo.getInstructions(result)
-						}else{
-							console.log('give us a moment while we search')
-							specialDietsFilter()
-							}
-
-						})	
-
-					}
-			
-		specialDietsFilter()	
+				})
+			}	
