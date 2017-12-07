@@ -13,7 +13,7 @@ var isEntree = function(){
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
 		var acceptableDish = result.body.recipes[0].dishTypes
-		if (acceptableDish.includes("main course" || "salad" || "breakfast" || "soup" || "dinner" || "main dish" || "lunch" || "morning meal" || "brunch" || "breakfast" )) {
+		if (acceptableDish.includes("main course") || acceptableDish.includes("salad") || acceptableDish.includes("breakfast") || acceptableDish.includes("soup") || acceptableDish.includes("dinner") || acceptableDish.includes("main dish") || acceptableDish.includes("lunch") || acceptableDish.includes("morning meal") || acceptableDish.includes("brunch") || acceptableDish.includes("breakfast")) {
 
 				var recipeInfo = {
 							title: result.body.recipes[0].title,
@@ -67,7 +67,7 @@ var isVegetarian = function(){
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
 		var acceptableDish = result.body.recipes[0].dishTypes
-		if (acceptableDish.includes("main course" || "salad" || "breakfast" || "soup" || "dinner" || "main dish" || "lunch" || "morning meal" || "brunch" || "breakfast" )&&(vegetarian === true)) {
+		if (acceptableDish.includes("main course") || acceptableDish.includes("salad") || acceptableDish.includes("breakfast") || acceptableDish.includes("soup") || acceptableDish.includes("dinner") || acceptableDish.includes("main dish") || acceptableDish.includes("lunch") || acceptableDish.includes("morning meal") || acceptableDish.includes("brunch") || acceptableDish.includes("breakfast")&&(vegetarian === true)) {
 
 				var recipeInfo = {
 							title: result.body.recipes[0].title,
@@ -123,7 +123,7 @@ var isVegan = function(){
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
 		var acceptableDish = result.body.recipes[0].dishTypes
-		if (acceptableDish.includes("main course" || "salad" || "breakfast" || "soup" || "dinner" || "main dish" || "lunch" || "morning meal" || "brunch" || "breakfast" )&&(vegan === true)) {
+		if (acceptableDish.includes("main course") || acceptableDish.includes("salad") || acceptableDish.includes("breakfast") || acceptableDish.includes("soup") || acceptableDish.includes("dinner") || acceptableDish.includes("main dish") || acceptableDish.includes("lunch") || acceptableDish.includes("morning meal") || acceptableDish.includes("brunch") || acceptableDish.includes("breakfast")&&(vegan === true)) {
 
 				var recipeInfo = {
 							title: result.body.recipes[0].title,
@@ -179,7 +179,7 @@ var isGlutenFree = function(){
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
 		var acceptableDish = result.body.recipes[0].dishTypes
-		if (acceptableDish.includes("main course" || "salad" || "breakfast" || "soup" || "dinner" || "main dish" || "lunch" || "morning meal" || "brunch" || "breakfast" )&&(glutenFree === true)) {
+		if (acceptableDish.includes("main course") || acceptableDish.includes("salad") || acceptableDish.includes("breakfast") || acceptableDish.includes("soup") || acceptableDish.includes("dinner") || acceptableDish.includes("main dish") || acceptableDish.includes("lunch") || acceptableDish.includes("morning meal") || acceptableDish.includes("brunch") || acceptableDish.includes("breakfast")&&(glutenFree === true)) {
 
 				var recipeInfo = {
 							title: result.body.recipes[0].title,
@@ -233,7 +233,7 @@ var isDairyFree = function(){
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
 		var acceptableDish = result.body.recipes[0].dishTypes
-		if (acceptableDish.includes("main course" || "salad" || "breakfast" || "soup" || "dinner" || "main dish" || "lunch" || "morning meal" || "brunch" || "breakfast" )&&(dairyFree === true)) {
+		if (acceptableDish.includes("main course") || acceptableDish.includes("salad") || acceptableDish.includes("breakfast") || acceptableDish.includes("soup") || acceptableDish.includes("dinner") || acceptableDish.includes("main dish") || acceptableDish.includes("lunch") || acceptableDish.includes("morning meal") || acceptableDish.includes("brunch") || acceptableDish.includes("breakfast")&&(dairyFree === true)) {
 
 				var recipeInfo = {
 							title: result.body.recipes[0].title,
