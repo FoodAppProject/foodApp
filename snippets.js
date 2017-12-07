@@ -2,7 +2,7 @@
 		var vegan = result.body.recipes[0].vegan
 		var glutenFree = result.body.recipes[0].glutenFree
 		var dairyFree = result.body.recipes[0].dairyFree
-		var acceptableDish = result.body.recipes[0].dishTypes
+		var acceptableDish = result.body.recipes[0].dishTypes	
 user1 = {
 	vegetarian: true,
 	glutenFree: true,
@@ -83,7 +83,7 @@ var isEntree = function(){
 
 
 
-
+//TALK TO SAM ABOUT INDENDTATION
 
 
 
