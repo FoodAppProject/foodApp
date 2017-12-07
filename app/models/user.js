@@ -19,13 +19,13 @@ module.exports = function(sequelize, DataTypes){
 		facebook_token: {
 			type: DataTypes.STRING,
 		},
-		facebook_email: {
-			type: DataTypes.SRING,
-			unique: true,
-			validate: {
-				isEmail: true
-			}
-		},
+		// facebook_email: {
+		// 	type: DataTypes.SRING,
+		// 	unique: true,
+		// 	validate: {
+		// 		isEmail: true
+		// 	}
+		// },
 		facebook_name: {
 			type: DataTypes.STRING,
 		},
