@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
 
 	User.associate = function(models){
 		User.belongsToMany(models.Recipe, {
-			through: "UserRecipe"
+			through: "UserRecipes"
 		});
 	};
 

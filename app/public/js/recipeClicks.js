@@ -4,10 +4,10 @@ $(document).ready(function(){
 		// choose new photo/recipe again
 		event.preventDefault();
 
+		// pick();
 		isEntree();
-		specialDietsFilter();
 
-		location.reload();
+		// location.reload();
 
 	});
 
@@ -17,11 +17,11 @@ $(document).ready(function(){
 
 		var id = userId
 
-		$.ajax("/api/userRecipe/" + id, {
+		$.ajax("/api/userRecipe/" + userId + '/' + recipeId, {
 			type: "POST"
 		}).then(function(data){
 			alert("Saved. Don't forget me!")
-			location.reload();
+			// location.reload();
 		})
 
 	});
@@ -31,22 +31,13 @@ $(document).ready(function(){
 		//append shit to modal
 		// on click function for modal button?
 
-		getRecipe(); 
-
-		function modal() {
-
-			var recipes = {
-				name: name,
-				ingredients: ingredients,
-				instructions: instructions
-			}
+		isEntree (function(recipe) {
 
 			$("#recipeTitle").append(recipes.name);
 			$("#modalIngredients").append(recipes.ingredients);
 			$("#modalInstructions").append(recipes.instructions);
+		})
 
-		}
-		modal();
 	});
 });
 
