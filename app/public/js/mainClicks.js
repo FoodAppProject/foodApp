@@ -16,6 +16,7 @@ $(document).ready(function(){
 
 		  	var title = response.recipes[0].title;
 			$(".foodTitle").append('<h1>' + title + '</h1>');
+			$('#recipeTitle').append(title);
 
 			var imageUrl = response.recipes[0].image;
 
@@ -25,7 +26,34 @@ $(document).ready(function(){
 
 		  	$(".loadImage").append(foodImg);
 
+
+		// append info to modal 		  	
+		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients);
+		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients[0]);
+		  	console.log("Food Instructions: ", response.recipes[0].instructions);
+
+		  	var instructions = response.recipes[0].instructions;
+		  	$('#instructions').append(instructions)
+
+		  	function getIngredients(result) {
+	        	var ingredients = response.recipes[0].extendedIngredients;
+	              
+	              for (var i = 0; i < ingredients.length; i++) {
+	                  console.log(ingredients[i].name)
+
+	                  var item = ingredients[i].name;
+
+	                  var ingredientList = $("<li>" + item + "</li>");
+	                  $("#ingredients").append(ingredientList)
+
+	              }
+	        };
+
+	        getIngredients();
+
 		});
+
+
 // clicking no to reload image/title
 	$('#no-btn').on('click', function(){
 		$(".loadImage").empty();
@@ -58,8 +86,6 @@ $(document).ready(function(){
 		});
 	    
 	});
-
-// 
 
 })
 

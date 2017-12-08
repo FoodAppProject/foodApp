@@ -1,4 +1,3 @@
-
 //This function determines whether the meal is adequate, printing only if it is//
 // var unirest = require('unirest');
 $(document).ready(function(){
@@ -289,5 +288,3 @@ var pick = function(caseData, functionData) {
 // runThis(process.argv[2], process.argv[3]);
 
 })
-
-
