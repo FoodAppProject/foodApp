@@ -7,15 +7,39 @@ module.exports = function(app) {
 // main page upon - saved button
 // post request to post current userId into joined table or post current recipeId?
 	app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
-		db.userRecipes.create({
-			
-			// check if user already has recipe - if not then find the recipe and add the user to recipe
-			// 
+		
+		function addRecipe (){
+			db.Recipe.findOne({
+				where: {
+					userID: req.params.RecipeId	
+				}
+			}).then(function(recipe){
+				if (!recipe){
+					return res.status(404).send("Recipe " + req.params.RecipeId + " does not exist!");
+				}
 
-			// check David's example very similar - if course then add student ID if no course then add course + student ID
-		}).then(function(dbRecipe){
-			res.json(dbRecipe);
-		})
+				this.recipe= recipe;
+
+				return db.users.findOne({
+					where: {
+						id: req.params.userId
+					}
+				}).then(function(user){
+					if(!user){
+						return res.status(404).send("No user with the ID " + req.params.userId)
+					}
+					return this.recipe.addRecipe(user)
+				}).then(function(userRecipe){
+					console.log("userRecipe")
+					console.log(UserRecipe)
+
+					res.json(userRecipe)
+				}).catch(function(err){
+					console.log("Error: ", err)
+					res.status(500).send(err)
+				})
+			})
+		}
 	});
 
 // userPage
