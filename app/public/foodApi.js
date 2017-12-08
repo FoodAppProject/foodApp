@@ -1,5 +1,7 @@
 //This function determines whether the meal is adequate, printing only if it is//
 // var unirest = require('unirest');
+$(document).ready(function(){
+
 var isEntree = function(){  
     $.ajaxSetup({
     headers: { "X-Mashape-Key": "nFUz42r0U1mshpt0Uq7JBSv0QEGHp1IDmtEjsnh67XCScyf2nJ",
@@ -283,4 +285,7 @@ var pick = function(caseData, functionData) {
 // // MAIN PROCESS
 // // =====================================
 // runThis(process.argv[2], process.argv[3]);
+
+})
+
 

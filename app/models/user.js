@@ -3,7 +3,7 @@
 var bcrypt = require('bcrypt');
 
 module.exports = function(sequelize, DataTypes) {
-  
+
 	var User = sequelize.define('User',{
 		user_name: {
 			type: DataTypes.STRING,
@@ -54,7 +54,9 @@ module.exports = function(sequelize, DataTypes) {
 
 	User.associate = function(models){
 		User.belongsToMany(models.Recipe, {
+
 			through: 'userRecipe'
+
 
 		});
 	};
