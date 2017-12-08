@@ -1,20 +1,23 @@
 /*//////////index.html/////////*/
-body, h1, h2, h5 {
-	font-family: 'Sonsie One', cursive;
+h1, h2, h5 {
+	font-family: 'Playfair Display', serif;
 } 
 
 body {
 	background-image: url("eatme.jpg");
 	background-size: cover;
+	background-repeat: none;
 	/*opacity: 0.5;*/
+	font-family: "Itim";
+	font-size: 14px;
 }
 
 .loadImage img {
 	border-radius: 25%;
 }
 
-.foodTitle h1 {
-	color: red;
+h1 {
+	color:  #ffc266;
 }
 
 .heading {
