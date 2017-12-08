@@ -277,10 +277,10 @@ var pick = function(caseData, functionData) {
   }
 };
 // Function which takes in command line arguments and executes correct function accordigly
-function runThis (argOne, argTwo) {
-  pick(argOne, argTwo);
-};
-// MAIN PROCESS
-// =====================================
-runThis(process.argv[2], process.argv[3]);
+// function runThis (argOne, argTwo) {
+//   pick(argOne, argTwo);
+// };
+// // MAIN PROCESS
+// // =====================================
+// runThis(process.argv[2], process.argv[3]);
 

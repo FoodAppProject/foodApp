@@ -1,11 +1,12 @@
 $(document).ready(function(){
 	console.log("RUNNING")
+
 	$("#no-btn").on('click', function(){
 		// choose new photo/recipe again
 		event.preventDefault();
 
-		// pick();
-		isEntree();
+		pick();
+		// isEntree();
 
 		// location.reload();
 
