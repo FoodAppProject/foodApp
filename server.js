@@ -10,7 +10,9 @@ var db = require('./app/models/index')
 var app = express()
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json())
+
 app.use(express.static('app/public'))
+
 
 app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true}))
 
