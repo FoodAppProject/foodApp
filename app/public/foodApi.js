@@ -1,3 +1,4 @@
+
 //This function determines whether the meal is adequate, printing only if it is//
 // var unirest = require('unirest');
 $(document).ready(function(){
@@ -49,6 +50,7 @@ var isEntree = function(){
 
                         cb (result)
         }
+
 
         else {
           console.log('give us a moment while we search')
