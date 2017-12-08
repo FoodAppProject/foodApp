@@ -1,28 +1,64 @@
-var db = require("../app/models");
+var express = require("express");
+
+var db = require("../models");
+// var Recipe = require("../controllers/recipe.js");
 
 module.exports = function(app) {
-// get initial recipe on page to save for later
-	app.get('/api/recipe', function(req, res){
-		db.Users.findOne({}).then(function(dbUsers){
-			res.json(dbUsers)
+
+// post request to post current userId into joined table or post current recipeId?
+	app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
+		db.userRecipes.create({
+			
+			// check if user already has recipe - if not then find the recipe and add the user to recipe
+			// 
+
+			// check David's example very similar - if course then add student ID if no course then add course + student ID
+		}).then(function(dbRecipe){
+			res.json(dbRecipe);
 		})
-	})
-// post saved reciped into users profile page
-	app.post('/api/users', function(req, res){
-		db.Users.create({
-			// recipe object 
-		}).then(function(dbUsers){
-			res.json(dbUsers)
-		})
-	})
-// delete uwanted recipes --> create delete buttons --> check burger activity
-	app.delete('/api/users/:id', function(req, res){
-		db.Users.destroy({
-			where:{
-				id: req.params.id
+	});
+
+// userPage
+// get request on userPage to get all associated recipes from joined table
+	app.get('/api/userRecipes/:id', function(req, res){
+		db.userRecipes.findAll({
+			where: {
+				userID = req.params.userID
 			}
-		}).then(function(dbUsers){
-			res.json(dbUsers);
+		}).then(function(dbRecipe){
+			res.json(dbRecipe);
+		})
+	});
+
+// delete userId associated to unwanted recipe
+	app.delete('/api/userRecipes/:id', function(req, res){
+		db.userRecipes.destroy({
+			where:{
+				userID: req.params.userID
+			}
+		}).then(function(result){
+			res.json(result);
+		})
+	});
+}
+
+
+// ================
+db.User
+	.findOne({where {id: req.params.id}, include: "UserRecipe"})
+	.then(function(user){
+		var recipe = user.recipes.find(function(recipe) {
+			return recipe.id === req.params.recipeId
+		})
+
+		if (recipe) {
+			//don't do anything to back end 
+			return res.send("Already Added!")
+		}
+
+		db.Recipe.findOne({where: {id: req.params.recipeID}})
+		.then(function(recipe){
+			user.addRecipe(recipe)
 		})
 	})
-}
+

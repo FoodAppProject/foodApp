@@ -1,3 +1,4 @@
+var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var FacebookStrategy = require('passport-facebook').Strategy
 var db = require('../models/index')
@@ -8,18 +9,18 @@ module.exports = function(passport){
 	passport.use(new LocalStrategy(
 		//user will sign in with email instead of username
 		{
-			username: 'email'
+			user_name: 'user_name'
 		},
-		function(email, password, done){
+		function(user_name, password, done){
 			db.User.findOne({
 				where: {
-					email
+					user_name
 				}
 			})
 			.then(function(dbUser){
 				if(!dbUser){
 					return done(null, false, {
-						message: 'Incorrect email'
+						message: 'Incorrect username'
 					})
 				}
 				else if(!dbUser.validPassword(password)){
@@ -34,7 +35,7 @@ module.exports = function(passport){
 	))
 
 	passport.use(new FacebookStrategy({
-		//not reading these unless I remove process.env and put into a string...
+		
 		clientID: '805216279650927',
 		clientSecret: '88ba957b0eeeb61f8f023d57d317d09e',
 		callbackURL: 'http://localhost:8080/auth/facebook/callback',
@@ -48,21 +49,23 @@ module.exports = function(passport){
 		})
 		.then(function(user){
 			var { email, first_name, last_name } = profile._json
-
+			console.log(email)
 			if(user){
 				user.facebook_id = profile.id
-				user.facebook_email = email
+				user.facebook_email = profile.email
 				user.facebook_name = (`${ first_name } ${ last_name }`).trim()
 				user.facebook_token = accessToken
+				// user.profile_pic = profile_pic
 
 				return user.save()
 			}
 
 			return db.User.create({
 				facebook_id: profile.id,
-				facebook_email: email,
+				facebook_email: profile.email,
 				facebook_name: (`${ first_name } ${ last_name }`).trim(),
 				facebook_token: accessToken,
+				// profile_pic: profile_pic
 			})
 		})
 		.then(function(user){
