@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 	                  var item = ingredients[i].name;
 
-	                  var ingredientList = $("<p>" + item + "</p>");
+	                  var ingredientList = $("<li>" + item + "</li>");
 	                  $("#ingredients").append(ingredientList)
 
 	              }

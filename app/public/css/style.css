@@ -9,6 +9,10 @@ body {
 	/*opacity: 0.5;*/
 }
 
+.loadImage img {
+	border-radius: 25%;
+}
+
 .foodTitle h1 {
 	color: red;
 }

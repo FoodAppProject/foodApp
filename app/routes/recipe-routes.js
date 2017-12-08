@@ -4,7 +4,7 @@ var db = require("../models");
 // var Recipe = require("../controllers/recipe.js");
 
 module.exports = function(app) {
-
+// main page upon - saved button
 // post request to post current userId into joined table or post current recipeId?
 	app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
 		db.userRecipes.create({
