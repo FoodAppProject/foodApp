@@ -28,20 +28,28 @@ $(document).ready(function(){
 
 
 		// append info to modal 		  	
-		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients)
-		  	console.log("Food Instructions: ", response.recipes[0].instructions)
+		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients);
+		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients[0]);
+		  	console.log("Food Instructions: ", response.recipes[0].instructions);
 
 		  	var instructions = response.recipes[0].instructions;
 		  	$('#instructions').append(instructions)
 
-		  	
 		  	function getIngredients(result) {
 	        	var ingredients = response.recipes[0].extendedIngredients;
 	              
 	              for (var i = 0; i < ingredients.length; i++) {
-	                  console.log(ingredients[i])
+	                  console.log(ingredients[i].name)
+
+	                  var item = ingredients[i].name;
+
+	                  var ingredientList = $("<p>" + item + "</p>");
+	                  $("#ingredients").append(ingredientList)
+
 	              }
 	        };
+
+	        getIngredients();
 
 		});
 
