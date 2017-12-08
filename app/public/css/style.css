@@ -9,6 +9,10 @@ body {
 	/*opacity: 0.5;*/
 }
 
+.foodTitle h1 {
+	color: red;
+}
+
 .heading {
 	text-align: center;
 }
