@@ -11,10 +11,34 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Poller+One|Sonsie+One" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 <body>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{latest-api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+	
 		<div class="image">
 			<a href="feed.html">
 				<img id="userImg" src="https://www.acefitness.org/myace/images/contactimage/no_photo.jpg" alt="Myself" width="100" height="100">
@@ -28,7 +52,7 @@
 		<div class="row align-items-start">
 			<div class="row">
 				<div class="loadImage">
-					<img src="./loginPage/burger.png" width="450px" height="400px"><br>
+					<img src="loginPage/burger.png" width="450px" height="400px"><br>
 				</div>
 			</div>
 		</div>
