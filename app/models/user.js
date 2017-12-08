@@ -2,7 +2,8 @@
 // var sequelize = require('../config/config.js')
 var bcrypt = require('bcrypt');
 
-module.exports = function(sequelize, DataTypes){
+module.exports = function(sequelize, DataTypes) {
+  
 	var User = sequelize.define('User',{
 		user_name: {
 			type: DataTypes.STRING,
@@ -43,12 +44,6 @@ module.exports = function(sequelize, DataTypes){
 		}
 	}, 
 	{
-		// hooks: {
-		// 	beforeCreate: function(user, options){
-		// 		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
-		// 	}
-		// },
-
 		tableName: 'users', 
 		timestamps: true
 	});
@@ -60,6 +55,7 @@ module.exports = function(sequelize, DataTypes){
 	User.associate = function(models){
 		User.belongsToMany(models.Recipe, {
 			through: 'userRecipe'
+
 		});
 	};
 

@@ -4,13 +4,15 @@ module.exports = function(sequelize, DataTypes) {
 		name: DataTypes.STRING,
 		tag: DataTypes.STRING,
 		ingredients: DataTypes.STRING,
-		instructions: DataTypes.STRING,
-		// userID: DataTypes.INTEGER
+		instructions: DataTypes.STRING
+    
 	});
 
 	Recipe.associate = function(models){
 		Recipe.belongsToMany(models.User, {
+
 			through: 'userRecipe'
+
 		});
 	};
 
