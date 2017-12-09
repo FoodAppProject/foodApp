@@ -6,6 +6,7 @@ var db = require("../models/index");
 module.exports = function(app) {
 // main page upon - saved button
 // post request to post current userId into joined table or post current recipeId?
+<<<<<<< HEAD
 	// app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
 	// 	db.userRecipes.create({
 			
@@ -27,6 +28,43 @@ module.exports = function(app) {
 				res.status(500).snd(err)
 			})
 	})
+=======
+	app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
+		
+		function addRecipe (){
+			db.Recipe.findOne({
+				where: {
+					userID: req.params.RecipeId	
+				}
+			}).then(function(recipe){
+				if (!recipe){
+					return res.status(404).send("Recipe " + req.params.RecipeId + " does not exist!");
+				}
+
+				this.recipe= recipe;
+
+				return db.users.findOne({
+					where: {
+						id: req.params.userId
+					}
+				}).then(function(user){
+					if(!user){
+						return res.status(404).send("No user with the ID " + req.params.userId)
+					}
+					return this.recipe.addRecipe(user)
+				}).then(function(userRecipe){
+					console.log("userRecipe")
+					console.log(UserRecipe)
+
+					res.json(userRecipe)
+				}).catch(function(err){
+					console.log("Error: ", err)
+					res.status(500).send(err)
+				})
+			})
+		}
+	});
+>>>>>>> 979869e1133bbd9472e4dbbc539bde6ba756c387
 
 // userPage
 // get request on userPage to get all associated recipes from joined table
