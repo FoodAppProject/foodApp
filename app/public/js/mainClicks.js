@@ -26,7 +26,6 @@ $(document).ready(function(){
 
 		  	$(".loadImage").append(foodImg);
 
-
 		// append info to modal 		  	
 		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients);
 		  	console.log("Food Ingredients: ", response.recipes[0].extendedIngredients[0]);
@@ -51,9 +50,27 @@ $(document).ready(function(){
 
 	        getIngredients();
 
+// clicking save-later button
+
+		$("#later-btn").on('click', function(){
+			// post recipe information into joined table 
+
+			// var recipeInfo = {
+		 //     	name: response.recipes[0].title,
+		 //     	ingredients: response.recipes[0].extendedIngredients,
+		 //     	instructions: response.recipes[0].instructions
+		 //     };
+
+		 	let foodName = response.recipes[0].title
+
+			$.post('/api/Recipes', {name: foodName})
+				.then(function(response){
+					console.log(response)
+				})
+
 		});
 
-
+	});
 // clicking no to reload image/title
 	$('#no-btn').on('click', function(){
 		$(".loadImage").empty();

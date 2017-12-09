@@ -1,22 +1,32 @@
 var express = require("express");
 
-var db = require("../models");
+var db = require("../models/index");
 // var Recipe = require("../controllers/recipe.js");
 
 module.exports = function(app) {
 // main page upon - saved button
 // post request to post current userId into joined table or post current recipeId?
-	app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
-		db.userRecipes.create({
+	// app.post('/api/userRecipes/:userID/:recipeID', function(req, res){
+	// 	db.userRecipes.create({
 			
-			// check if user already has recipe - if not then find the recipe and add the user to recipe
-			// 
+	// 		// check if user already has recipe - if not then find the recipe and add the user to recipe
+	// 		// 
 
-			// check David's example very similar - if course then add student ID if no course then add course + student ID
-		}).then(function(dbRecipe){
-			res.json(dbRecipe);
-		})
-	});
+	// 		// check David's example very similar - if course then add student ID if no course then add course + student ID
+	// 	}).then(function(dbRecipe){
+	// 		res.json(dbRecipe);
+	// 	})
+	// });
+
+	app.post('/api/Recipes', function(req, res){
+		console.log(req.body);
+		db.Recipes.create(req.body).then(function(dbRecipe){
+				res.json(dbRecipe)
+			}).catch(function(err){
+				console.log("Errrr: ", err)
+				res.status(500).snd(err)
+			})
+	})
 
 // userPage
 // get request on userPage to get all associated recipes from joined table

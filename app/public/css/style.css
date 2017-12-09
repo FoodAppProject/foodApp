@@ -1,13 +1,16 @@
 /*//////////index.html/////////*/
-h1, h2, h5 {
+h1, h2, h3, h5 {
 	font-family: 'Playfair Display', serif;
 } 
 
+h3 {
+	text-align: center;
+}
+
 body {
 	background-image: url("eatme.jpg");
-	background-size: cover;
-	background-repeat: none;
-	/*opacity: 0.5;*/
+	height: auto;
+	background-size: 100%;
 	font-family: "Itim";
 	font-size: 14px;
 }
@@ -45,7 +48,7 @@ h1 {
 }
 
 #footer p {
-	font-size: 10px;
+	font-size: 15px;
 	color: #bfbfbf;
 }
 
