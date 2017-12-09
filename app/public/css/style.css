@@ -1,5 +1,5 @@
 /*//////////index.html/////////*/
-h1, h2, h3, h5 {
+h3, h5 {
 	font-family: 'Playfair Display', serif;
 } 
 
@@ -7,8 +7,18 @@ h3 {
 	text-align: center;
 }
 
+h1, h2 {
+	font-family: 'Cabin Sketch', cursive;
+	font-size: 58px;
+}
+
+label {
+	font-family: 'Cabin Sketch', cursive;	
+	font-size: 28px;
+}
+
 body {
-	background-image: url("eatme.jpg");
+	background-image: url("background.jpg");
 	height: auto;
 	background-size: 100%;
 	font-family: "Itim";
@@ -20,7 +30,7 @@ body {
 }
 
 h1 {
-	color:  #ffc266;
+	color: #fecb32;
 }
 
 .heading {
