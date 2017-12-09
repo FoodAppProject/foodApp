@@ -3,59 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>oophm Login</title>
-
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Inconsolata|Playfair+Display|Itim" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/login.css">
-	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 </head>
 <body>
 	
-<!-- <header>
-		 <h1 class="heading"><a id="logo" class="logo"><img src="loginPage/burger.png" alt="Eat Me Logo"></a>
+<header>
+		 <h1 class="heading"><a id="logo" class="logo"><img src="loginPage/burger.png" alt="Eat Me Logo" width="320px" height="250px"></a>
 		 </h1>
 
-		<h1 class="neon">Eat Me!</h1>
-
-		<button class="auth">Authentication</button>
-	</header> -->
+		<h1 class="neon title">Eat Me!</h1>
+	</header>
 	
 <div class="container">
-	<h2>New Users Sign up HERE</h2>
-	<form class = 'signup' action="/auth/signup" method="POST">
-		<div class="form-group">
-			<label for="exampleUsername">Username</label>
-			<input type="text" name="username" class="form-control" id="username-input" placeholder="e.g. Jane Smith">
+	<div class="row">
+		<div class="col-md-6">
+			<h2 class="neon">Sign up HERE</h2>
+			<form class = 'signup' action="/auth/signup" method="POST">
+				<div class="form-group">
+					<label for="exampleUsername">Username</label>
+					<input type="text" name="username" class="form-control" id="username-input" placeholder="e.g. Jane Smith">
+				</div>
+				<div class="form-group">
+					<label for="exampleEmail">Email</label>
+					<input type="email" name="email" class="form-control" id="email-input" placeholder="Email">
+				</div>
+				<div class="form-group">
+					<label for="examplePassword">Password</label>
+					<input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-danger btn-md">Submit</button>
+			</form>
 		</div>
-		<div class="form-group">
-			<label for="exampleEmail">Email Address</label>
-			<input type="email" name="email" class="form-control" id="email-input" placeholder="Email">
+
+		<div class="col-md-6">
+			<h2 class="neon">Exisitng User Login</h2>
+			<form class="login" action="/auth/login" method="POST">
+				<div class="form-group">
+					<label for="inputUsername">Username</label>
+					<input type="text" name="username" class="form-control" id="username-input" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="inputPassword">Password</label>
+					<input type="text" name="password" class="form-control" id="password-input" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-danger btn-md">Submit</button>
+			</form>
+
+			<h2 class="neon" id="fb"><b><a href="/auth/facebook">Facebook Login!</a></b></h2>
 		</div>
-		<div class="form-group">
-			<label for="examplePassword">Email Address</label>
-			<input type="password" name="password" class="form-control" id="password-input" placeholder="Password">
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
-	<h4>OR</h4>
-	<h6>Log in with your existing username and password</h6>
-	<form class="login" action="/auth/login" method="POST">
-		<div class="form-group">
-			<label for="inputUsername">Username</label>
-			<input type="text" name="username" class="form-control" id="username-input" placeholder="Username">
-		</div>
-		<div class="form-group">
-			<label for="inputPassword">Password</label>
-			<input type="text" name="password" class="form-control" id="password-input" placeholder="Password">
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
-	<h6>Sign Up with <a href="/auth/facebook">Facebook!</a></h6>
+	</div>
 </div>
 
-
-
-<!-- <script src="login.js"></script> -->
-
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
 
 </body>
 </html>
