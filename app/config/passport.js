@@ -55,6 +55,7 @@ module.exports = function(passport){
 				user.facebook_email = profile.email
 				user.facebook_name = (`${ first_name } ${ last_name }`).trim()
 				user.facebook_token = accessToken
+				
 				// user.profile_pic = profile_pic
 
 				return user.save()
