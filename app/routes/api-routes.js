@@ -5,7 +5,7 @@ var isAuthenticated = require('../config/middleware/isAuthenticated.js');
 module.exports = function(app, passport){
 
 	app.post('/auth/login', passport.authenticate('local'), function(req, res){
-		res.redirect('/')
+		res.redirect('/users')
 	});
 
 	app.post('/auth/signup', function(req, res){
@@ -15,7 +15,7 @@ module.exports = function(app, passport){
 			password: req.body.password,
 		}).then(function(){
 			console.log('are we here?')
-			res.redirect(307, '/auth/login')
+			res.redirect(307, 'login')
 		})
 		.catch(function(err){
 			res.json(err)
@@ -26,8 +26,8 @@ module.exports = function(app, passport){
 
 	app.get('/auth/facebook/callback',
 		passport.authenticate('facebook', {
-			successRedirect: '/index.html',
-			failureRedirect: '/login.html'
+			successRedirect: '/',
+			failureRedirect: '/login'
 		})
 	)
 
